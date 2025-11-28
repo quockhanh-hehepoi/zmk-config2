@@ -9,51 +9,60 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-        keymap {
-                compatible = "zmk,keymap";
+    keymap {
+        compatible = "zmk,keymap";
 
-                default_layer {
-                        display-name = "Default Layer";
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
-                        >;
-                };
-                lower_layer {
-                        display-name = "Lower Layer";
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
-                        >;
-                };
-
-                raise_layer {
-                        display-name = "Raise Layer";
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
-                        >;
-                };
+        default_layer {
+            bindings = <
+                // Layer 0
+                &kp TAB &kp Q &kp W &kp E &kp R &kp T      &kp ESC &kp A &kp S &kp D &kp F &kp G
+                &mo 2 &kp Z &kp X &kp C &kp V &kp B         &kp_NO &kp_NO &kp_NO &kp_LALT &kp_SPC &mo 1
+                &kp BSPC &kp P &kp O &kp I &kp U &kp Y     &kp_QUOT &kp_SCLN &kp L &kp K &kp J &kp H
+                &kp_ENT &kp_SLSH &kp_DOT &kp_COMM &kp M &kp N
+                &kp_NO &kp_NO &kp_NO &kp_RCTL &kp_RSFT &kp_RGUI
+            >;
         };
+
+        layer_1 {
+            bindings = <
+                // Layer 1
+                &kp_GRV &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO
+                &kp_TRNS &kp_1 &kp_2 &kp_3 &kp_4 &kp_5
+                &kp_TRNS &kp_BSLS &kp_DEL &kp_CAPS &kp_NO &kp_NO
+                &kp_NO &kp_NO &kp_NO &kp_NO &kp_TRNS &kp_TRNS
+                &kp_TRNS &kp_TRNS &kp_RBRC &kp_LBRC &kp_EQL &kp_MINS
+                &kp_NO &kp_TRNS &kp_0 &kp_9 &kp_8 &kp_7
+                &kp_6 &kp_TRNS &kp_TRNS &kp_TRNS &kp_TRNS &kp_NO
+                &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO &kp_TRNS
+            >;
+        };
+
+        layer_2 {
+            bindings = <
+                // Layer 2
+                &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO
+                &kp_NO &kp_F5 &kp_F6 &kp_F7 &kp_F8 &kp_NO
+                &kp_NO &kp_F9 &kp_F10 &kp_F11 &kp_F12 &kp_NO
+                &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO &kp_TRNS
+                &kp_TRNS &kp_TRNS &kp_HOME &kp_PGUP &kp_NO &kp_NO
+                &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO
+                &kp_RGHT &kp_UP &kp_DOWN &kp_LEFT &kp_END &kp_F4
+                &kp_F3 &kp_F2 &kp_F1 &kp_PGDN &kp_NO &kp_NO
+                &kp_NO &kp_TRNS &kp_TRNS &kp_TRNS
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+                // Layer 3 (media)
+                &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO
+                &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO
+                &kp_NO &kp_MUTE &kp_MPRV &kp_NO &kp_NO &kp_NO
+                &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO
+                &kp_MFFD &kp_VOLU &kp_VOLD &kp_MRWD &kp_MPLY &kp_NO
+                &kp_NO &kp_NO &kp_NO &kp_NO &kp_MNXT &kp_NO
+                &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO &kp_NO
+            >;
+        };
+    };
 };
